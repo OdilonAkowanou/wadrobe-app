@@ -92,4 +92,8 @@ Utilise les vrais IDs des vêtements listés ci-dessus.
         return data, None
 
     except Exception as e:
-        return None, f"Erreur : {str(e)}"
+        try:
+            detail = response.json()
+        except:
+            detail = "pas de réponse"
+        return None, f"Erreur : {str(e)} | Détail : {detail}"
